@@ -1,5 +1,5 @@
 import { Field, ObjectType } from "type-graphql";
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @ObjectType()
 @Entity()
@@ -19,6 +19,10 @@ export class Plasma extends BaseEntity {
   @Field()
   @Column({ unique: true })
   mail_id!: string;
+
+  @Field(() => String)
+  @CreateDateColumn({ type: 'date', nullable: true })
+  createdAt: Date;
 
   @Field()
   @Column({ unique: true })

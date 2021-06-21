@@ -22,7 +22,7 @@ export class Beds extends BaseEntity{
   address!: string;
 
   @Field(() => String)
-  @CreateDateColumn()
+  @CreateDateColumn({ type: 'date',nullable: true })
   createdAt: Date;
 
   @Field()

@@ -24,7 +24,7 @@ export class PlasmaResolver {
 
   @Query(() => [Plasma])
   async getPlasma(): Promise<Plasma[]> {
-    return Plasma.find();
+    return Plasma.find({order: {id: 'DESC'}});
   }
 
   @Query(() => Plasma, { nullable: true })
