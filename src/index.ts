@@ -22,7 +22,7 @@ import { AdminResolver } from "./resolvers/AdminResolver";
 dotenv.config();
 
 const main = async () => {
-  const conn = await createConnection({
+  await createConnection({
     type: 'postgres',
     database: 'covidinfo',
     username: 'kishorshivsharan',
