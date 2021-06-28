@@ -17,6 +17,9 @@ export class PlasmaInput {
 
   @Field()  
   address!: string;
+
+  @Field(() => [String])	
+	blood_grp: string[];
 }
 
 @Resolver()
@@ -41,7 +44,8 @@ export class PlasmaResolver {
         phone_no: data.phone_no,
         mail_id: data.mail_id,
         location: data.location,
-        address: data.address
+        address: data.address,
+        blood_grp: data.blood_grp
     }).save();
   }
 

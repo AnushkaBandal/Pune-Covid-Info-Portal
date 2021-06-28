@@ -21,8 +21,8 @@ export class Beds extends BaseEntity{
   @Column()
   address!: string;
 
-  @Field(() => String)
-  @CreateDateColumn({ type: 'date',nullable: true })
+  @Field()
+  @CreateDateColumn({ type: 'timestamp',nullable: true })
   createdAt: Date;
 
   @Field()

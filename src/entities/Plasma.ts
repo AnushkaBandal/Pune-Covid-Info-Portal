@@ -20,8 +20,8 @@ export class Plasma extends BaseEntity {
   @Column({ unique: true })
   mail_id!: string;
 
-  @Field(() => String)
-  @CreateDateColumn({ type: 'date', nullable: true })
+  @Field()
+  @CreateDateColumn({ type: 'timestamp',nullable: true })
   createdAt: Date;
 
   @Field()
@@ -31,4 +31,8 @@ export class Plasma extends BaseEntity {
   @Field()
   @Column()
   address!: string;
+
+  @Field(() => [String])
+	@Column({ type: "text", array: true, nullable: true })
+	blood_grp: string[];
 }
