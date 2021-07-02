@@ -23,8 +23,8 @@ const main = async () => {
   const conn = await createConnection({
     type: 'postgres',
     database: 'covidinfo',
-    username: 'kishorshivsharan',
-    password: 'postgres',
+    username: 'postgres',
+    password: 'anu@123',
     logging: true,
     synchronize: true,
     entities: [Beds, Plasma, RATCenter, Tiffin]
