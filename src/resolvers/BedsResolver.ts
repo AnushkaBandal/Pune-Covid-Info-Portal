@@ -13,7 +13,7 @@ export class bedsInput {
     address!: string;
 
     @Field()  
-    location!: string;
+    location!: string;    
   
     @Field()
     with_oxygen!: number;
@@ -45,7 +45,7 @@ export class BedsResolver {
 
   @Query(() => [Beds])
   async getBeds(): Promise<Beds[]> {
-    return Beds.find();
+    return Beds.find({order: {id: 'DESC'}});
   }
 
   @Query(() => Beds, { nullable: true })

@@ -27,7 +27,7 @@ export class TiffinResolver {
 
   @Query(() => [Tiffin])
   async getTiffin(): Promise<Tiffin[]> {
-    return Tiffin.find();
+    return Tiffin.find({order: {id: 'DESC'}});
   }
 
   @Query(() => Tiffin, { nullable: true })

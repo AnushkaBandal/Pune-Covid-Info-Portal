@@ -17,6 +17,9 @@ export class PlasmaInput {
 
   @Field()  
   address!: string;
+
+  @Field(() => [String])	
+	blood_grp: string[];
 }
 
 @Resolver()
@@ -24,7 +27,7 @@ export class PlasmaResolver {
 
   @Query(() => [Plasma])
   async getPlasma(): Promise<Plasma[]> {
-    return Plasma.find();
+    return Plasma.find({order: {id: 'DESC'}});
   }
 
   @Query(() => Plasma, { nullable: true })
@@ -41,7 +44,8 @@ export class PlasmaResolver {
         phone_no: data.phone_no,
         mail_id: data.mail_id,
         location: data.location,
-        address: data.address
+        address: data.address,
+        blood_grp: data.blood_grp
     }).save();
   }
 

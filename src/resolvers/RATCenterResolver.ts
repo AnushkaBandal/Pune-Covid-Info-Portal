@@ -18,7 +18,7 @@ export class RATCenterResolver {
 
   @Query(() => [RATCenter])
   async getRATCenter(): Promise<RATCenter[]> {
-    return RATCenter.find();
+    return RATCenter.find({order: {id: 'DESC'}});
   }
 
   @Query(() => RATCenter, { nullable: true })

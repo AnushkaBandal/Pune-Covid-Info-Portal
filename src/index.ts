@@ -17,17 +17,19 @@ import { BedsResolver } from "./resolvers/BedsResolver";
 import { PlasmaResolver } from "./resolvers/PlasmaResolver";
 import { RATCenterResolver } from "./resolvers/RATCenterResolver";
 import { TiffinResolver } from "./resolvers/TiffinResolver";
+import { Admin } from "./entities/Admin";
+import { AdminResolver } from "./resolvers/AdminResolver";
 dotenv.config();
 
 const main = async () => {
-  const conn = await createConnection({
+  await createConnection({
     type: 'postgres',
     database: 'covidinfo',
     username: 'postgres',
     password: 'anu@123',
     logging: true,
     synchronize: true,
-    entities: [Beds, Plasma, RATCenter, Tiffin]
+    entities: [Beds, Plasma, RATCenter, Tiffin, Admin]
   });
   
   const app = express();
@@ -63,7 +65,7 @@ const main = async () => {
 
   const apolloServer = new ApolloServer({
     schema: await buildSchema({
-      resolvers: [BedsResolver, PlasmaResolver, RATCenterResolver, TiffinResolver],
+      resolvers: [BedsResolver, PlasmaResolver, RATCenterResolver, TiffinResolver, AdminResolver],
       validate: false,
     }),
     context: ({ req, res }) => ({ req, res }),

@@ -1,6 +1,5 @@
-
 import { Field, ObjectType } from "type-graphql";
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @ObjectType()
 @Entity()
@@ -20,6 +19,10 @@ export class Beds extends BaseEntity{
   @Field()
   @Column()
   address!: string;
+
+  @Field()
+  @CreateDateColumn({ type: 'timestamp',nullable: true })
+  createdAt: Date;
 
   @Field()
   @Column()
